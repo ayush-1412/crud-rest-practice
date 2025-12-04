@@ -65,6 +65,12 @@ app.patch("/posts/:id",(req,res)=>{
     res.redirect("/posts");
 });
 
+app.delete("/posts/:id",(req,res)=>{
+    let {id} = req.params;
+    posts = posts.filter(p => p.id !== id);
+    res.redirect("/posts");
+});
+
 app.listen(port, ()=>{
     console.log(`Listening to port ${port}`)
 });
